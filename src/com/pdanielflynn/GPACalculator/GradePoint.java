@@ -29,7 +29,7 @@ public class GradePoint {
 	 */
 	public float calculateGPA() 
 	{
-		/**
+		/*
 		 * Ensure that a text file is available
 		 */
 		try 
@@ -45,14 +45,14 @@ public class GradePoint {
 			e.printStackTrace();
 			System.out.println("File not found.");
 		}
-		/**
+		/*
 		 * Create lists to calculate GPA
 		 */
 		ArrayList<String> creditsGrades = new ArrayList<String>(gpas.values());
 		ArrayList<Float> credits = new ArrayList<Float>();
 		ArrayList<Float> grades = new ArrayList<Float>();
 		ArrayList<Float> qualityCredits = new ArrayList<Float>();
-		/**
+		/*
 		 * Populate lists
 		 */
 		for (int i = 0; i < creditsGrades.size(); i++)
@@ -61,7 +61,7 @@ public class GradePoint {
 			grades.add(Float.parseFloat(creditsGrades.get(i).substring(2, creditsGrades.get(i).length())));
 			qualityCredits.add(credits.get(i)*grades.get(i));
 		}
-		/**
+		/*
 		 * Calculate credit-hour based GPA
 		 */
 		float sum = 0;

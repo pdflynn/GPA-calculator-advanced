@@ -74,4 +74,62 @@ public class GradePoint {
 		
 		return sum/totalCredits;
 	}
+	/**
+	 * Get a string representation for this class's grade
+	 */
+	public String getGrade(String whichClass)
+	{
+		float epsilon = (float) 0.001;
+		String output = whichClass + ": ";
+		float grade = Float.parseFloat(gpas.get(whichClass).substring(gpas.get(whichClass).length() - 3));
+		if (Math.abs(grade - 4.0) <= epsilon)
+		{
+			output += "A";
+		}
+		else if (Math.abs(grade - 3.7) <= epsilon)
+		{
+			output += "A-";
+		}
+		else if (Math.abs(grade - 3.3) <= epsilon)
+		{
+			output += "B+";
+		}
+		else if (Math.abs(grade - 3.0) <= epsilon)
+		{
+			output += "B";
+		}
+		else if (Math.abs(grade - 2.7) <= epsilon)
+		{
+			output += "B-";
+		}
+		else if (Math.abs(grade - 2.3) <= epsilon)
+		{
+			output += "C+";
+		}
+		else if (Math.abs(grade - 2.0) <= epsilon)
+		{
+			output += "C";
+		}
+		else if (Math.abs(grade - 1.7) <= epsilon)
+		{
+			output += "C-";
+		}
+		else if (Math.abs(grade - 1.3) <= epsilon)
+		{
+			output += "D+";
+		}
+		else if (Math.abs(grade - 1.0) <= epsilon)
+		{
+			output += "D";
+		}
+		else if (Math.abs(grade - 0.7) <= epsilon)
+		{
+			output += "D-";
+		}
+		else
+		{
+			output += "F";
+		}
+		return output;
+	}
 }

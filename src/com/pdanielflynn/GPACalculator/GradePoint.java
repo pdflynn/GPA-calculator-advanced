@@ -6,6 +6,7 @@ public class GradePoint {
 	private File file;
 	private Scanner scn;
 	private HashMap<String, String> gpas = new HashMap<String, String>();
+	private String[] classes;
 	//Constructors
 	/**
 	 * Creates a new GradePoint object
@@ -45,14 +46,18 @@ public class GradePoint {
 			e.printStackTrace();
 			System.out.println("File not found.");
 		}
-		/**
+		
+		//create a list of class names
+		classes = gpas.keySet().toArray(new String[gpas.size()]);
+		
+		/*
 		 * Create lists to calculate GPA
 		 */
 		ArrayList<String> creditsGrades = new ArrayList<String>(gpas.values());
 		ArrayList<Float> credits = new ArrayList<Float>();
 		ArrayList<Float> grades = new ArrayList<Float>();
 		ArrayList<Float> qualityCredits = new ArrayList<Float>();
-		/**
+		/*
 		 * Populate lists
 		 */
 		for (int i = 0; i < creditsGrades.size(); i++)
@@ -61,7 +66,7 @@ public class GradePoint {
 			grades.add(Float.parseFloat(creditsGrades.get(i).substring(2, creditsGrades.get(i).length())));
 			qualityCredits.add(credits.get(i)*grades.get(i));
 		}
-		/**
+		/*
 		 * Calculate credit-hour based GPA
 		 */
 		float sum = 0;
@@ -131,5 +136,19 @@ public class GradePoint {
 			output += "F";
 		}
 		return output;
+	}
+	/**
+	 * Creates a list of grades for each class and returns it
+	 */
+	public ArrayList<String> getGradeList()
+	{
+		ArrayList<String> classGrades = new ArrayList<String>();
+		
+		for (String className : classes)
+		{
+			classGrades.add(this.getGrade(className));
+		}
+		
+		return classGrades;
 	}
 }

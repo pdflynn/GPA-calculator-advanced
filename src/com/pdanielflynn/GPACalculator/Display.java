@@ -17,7 +17,7 @@ public class Display {
 	 */
 	public Display()
 	{
-		this("GPA Calculator", 600, 300);
+		this("GPA Calculator", 600, 900);
 	}
 	/**
 	 * Creates a new Display object specified for the
@@ -37,7 +37,7 @@ public class Display {
 		frame.setLocationRelativeTo(null);
 
 		
-		layout = new GridLayout(3, 1, 5, 5);
+		layout = new GridLayout(12, 1, 5, 5);
 		frame.setLayout(layout);
 		
 		this.addUI();
@@ -100,5 +100,17 @@ public class Display {
 			return file;
 		}
 		return null;
+	}
+	/**
+	 * Add the classes and the reported grades in each class
+	 * to the screen
+	 */
+	public void displayGrade(String whatToAdd) {
+		JLabel classGrade = new JLabel(whatToAdd, SwingConstants.LEFT);
+		classGrade.setFont(new Font("Arial", Font.BOLD, DEFAULT_FONT_SIZE / 2));
+		classGrade.setForeground(Color.WHITE);
+		frame.add(classGrade);
+		frame.revalidate();
+		frame.repaint();
 	}
 }
